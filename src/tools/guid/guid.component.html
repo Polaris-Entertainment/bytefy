@@ -1,0 +1,44 @@
+<p-panel header="Guid Generator">
+  <div>
+    <div *ngFor="let setting of settings" class="guid-row">
+		<p-radiobutton [inputId]="setting.code" name="category" [value]="setting" [(ngModel)]="selectedGuid" />
+		<label [for]="setting.code">
+			{{ setting.name }}
+		</label>
+    </div>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <div>
+      <div class="icon-wrapper">
+        <p-button 
+					pTooltip="Regenerate new Guid." 
+					icon="pi pi-refresh" 
+					[rounded]="true" 
+					[text]="true" 
+					(onClick)="generateGuid(true)" 
+				/>
+        <p-button 
+					pTooltip="Copy selected Guid to clipboard." 
+					icon="pi pi-clipboard" 
+					severity="secondary" 
+					[rounded]="true" 
+					[text]="true"
+          (onClick)="onCopyToClipboard()" 
+				/>
+        <p-button 
+					pTooltip="Change casing." 
+					icon="pi" 
+					severity="secondary" 
+					[rounded]="true" 
+					[text]="true"
+					(onClick)="onCasingChange()" 
+				>
+          <ng-template pTemplate="uppercase">
+            <ng-icon name="cssFormatUppercase"></ng-icon>
+          </ng-template>
+        </p-button>
+      </div>
+    </div>
+  </ng-template>
+</p-panel>

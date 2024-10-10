@@ -1,0 +1,30 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 98vw;
+
+    p-panel {
+        width: 576px;
+    }
+
+    .guid-row {
+        padding: 8px 0px;
+        border-bottom: solid 1px var(--p-button-text-secondary-color);
+    }
+    
+    p-floatlabel {
+        width: 30vw;
+    }
+
+    ng-icon {
+        color: var(--p-button-text-secondary-color)
+    }
+
+    .icon-wrapper{
+        display: flex;
+        align-items: center;
+        margin: 10px 0px;
+    }
+}

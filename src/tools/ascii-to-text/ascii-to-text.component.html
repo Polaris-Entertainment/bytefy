@@ -1,0 +1,9 @@
+<app-dual-textarea 
+  title="Ascii to text"
+  [topPlaceholder]="'Enter ascii here...'"
+  [bottomPlaceholder]="'Text will appear here...'"
+  [topValue]="convertedAscii" 
+  [bottomValue]="convertedText" 
+  (topChange)="onAsciiChange($event)" 
+  (bottomChange)="onTextChange($event)">
+</app-dual-textarea>

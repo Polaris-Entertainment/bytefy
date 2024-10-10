@@ -1,0 +1,9 @@
+<app-dual-textarea 
+  title="base64 to text"
+  topPlaceholder="Enter base64 here..."
+  bottomPlaceholder="Text will appear here..."
+  [topValue]="convertedBase64" 
+  [bottomValue]="convertedText" 
+  (topChange)="base64Decoded($event)" 
+  (bottomChange)="base64Encoded($event)">
+</app-dual-textarea>

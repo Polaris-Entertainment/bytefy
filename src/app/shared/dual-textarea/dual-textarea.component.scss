@@ -1,0 +1,36 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 98vw;
+    
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 1140px;
+      
+      .conversion {
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            height: 70vh;
+  
+        p-floatlabel {
+            width: 30vw;
+        }
+      }
+    }
+
+    textarea {
+        width: 540px;
+        height: 175px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border-radius: 4px;
+        font-size: 16px;
+        resize: none;
+        background-color: var(--primary-contrast);
+        color: var(--text-color)
+    }
+}

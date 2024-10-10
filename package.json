@@ -11,6 +11,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^17.3.0",
+    "@angular/cdk": "^17.3.10",
     "@angular/common": "^17.3.0",
     "@angular/compiler": "^17.3.0",
     "@angular/core": "^17.3.0",
@@ -18,7 +19,13 @@
     "@angular/platform-browser": "^17.3.0",
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
+    "@ng-icons/core": "^29.5.1",
+    "@ng-icons/css.gg": "^29.5.1",
+    "@ng-icons/heroicons": "^29.5.1",
+    "primeicons": "^7.0.0",
+    "primeng": "^18.0.0-beta.2",
     "rxjs": "~7.8.0",
+    "tailwindcss-primeui": "^0.3.4",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
   },

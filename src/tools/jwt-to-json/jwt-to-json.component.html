@@ -1,0 +1,8 @@
+<app-dual-textarea 
+  title="Decode JWT Token"
+  topPlaceholder="Enter JWT Token here..."
+  bottomPlaceholder="Json will appear here..."
+  [bottomDisabled]="true"
+  [bottomValue]="readableToken" 
+  (topChange)="decodeJwtToken($event)">
+</app-dual-textarea>
