@@ -17,43 +17,60 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
       this.items = [
           {
-              label: 'Text Tools',
-              icon: 'pi pi-box',
-              items: [
-                  [
-                      {
-                          items: [
-                              {
-                                  label: 'Ascii to text',
-                                  routerLink: 'ascii-to-text',
-                                  routerLinkActiveOptions: { exact: true }
-                              },
-                              {
-                                label: 'Guid Generator',
-                                routerLink: 'guid',
-                                routerLinkActiveOptions: { exact: true }
-                              },
-															{
-																label: 'Base64 Converter',
-																routerLink: 'base64-converter',
-																routerLinkActiveOptions: { exact: true }
-															},
-															{
-																label: 'Jwt decoder',
-																routerLink: 'jwt-decoder',
-																routerLinkActiveOptions: { exact: true }
-															},
-															{
-																label: 'Text to Cron Expression',
-																routerLink: 'text-to-cron',
-																routerLinkActiveOptions: { exact: true }
-															},
-                          ],
-                          
-                      }
-                  ]
+						label: 'Text Tools',
+						icon: 'pi pi-box',
+						items: [
+							[
+								{
+									items: [
+											{
+													label: 'Ascii to text',
+													routerLink: 'ascii-to-text',
+													routerLinkActiveOptions: { exact: true }
+											},
+											{
+												label: 'Guid Generator',
+												routerLink: 'guid',
+												routerLinkActiveOptions: { exact: true }
+											},
+											{
+												label: 'Base64 Converter',
+												routerLink: 'base64-converter',
+												routerLinkActiveOptions: { exact: true }
+											},
+											{
+												label: 'Jwt decoder',
+												routerLink: 'jwt-decoder',
+												routerLinkActiveOptions: { exact: true }
+											},
+											{
+												label: 'Text to Cron Expression',
+												routerLink: 'text-to-cron',
+												routerLinkActiveOptions: { exact: true }
+											}
+									],
+									
+								}
+							]
             ]
-          }
+          },
+					{
+						label: 'Conversion',
+						icon: 'pi pi-box',
+						items: [
+							[
+								{
+									items: [
+										{
+											label: 'DDS to PNG',
+											routerLink: 'dds-to-png',
+											routerLinkActiveOptions: { exact: true }
+										}
+									]
+								}
+							]
+						]
+					}
       ]
   }
 }

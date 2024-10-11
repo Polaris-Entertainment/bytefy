@@ -6,7 +6,9 @@
     width: 98vw;
 
     p-panel {
-        width: 576px;
+        display: flex;
+        flex-direction: column;
+        width: 1140px;
     }
 
     .guid-row {

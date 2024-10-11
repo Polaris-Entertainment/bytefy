@@ -4,8 +4,8 @@ import { GuidComponent } from '../tools/guid/guid.component';
 import { Base64ConverterComponent } from '../tools/base64-converter/base64-converter.component';
 import { JwtToJsonComponent } from '../tools/jwt-to-json/jwt-to-json.component';
 import { TextToCronComponent } from '../tools/text-to-cron/text-to-cron.component';
+import { DdsToPngComponent } from '../tools/dds-to-png/dds-to-png.component';
 
-// create route to the ascii-to-text component
 export const routes: Routes = [
   {
     path: 'ascii-to-text',
@@ -31,6 +31,11 @@ export const routes: Routes = [
     path: 'text-to-cron',
     pathMatch: 'full',
     component: TextToCronComponent
+  },
+  {
+    path: 'dds-to-png',
+    pathMatch: 'full',
+    component: DdsToPngComponent
   }
 ];
 
