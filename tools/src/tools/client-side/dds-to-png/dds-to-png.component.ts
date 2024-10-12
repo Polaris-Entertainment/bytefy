@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FileConverterComponent } from '../../app/shared/upload/file-converter.component';
+import { FileConverterComponent } from '../../../app/shared/upload/file-converter.component';
 import { DdsToPngService } from './dds-to-png.service';
 
 interface ProcessedFile {

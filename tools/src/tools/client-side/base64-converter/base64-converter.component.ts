@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DualTextareaComponent } from '../../app/shared/dual-textarea/dual-textarea.component';
+import { DualTextareaComponent } from '../../../app/shared/dual-textarea/dual-textarea.component';
 
 @Component({
   selector: 'app-base64-converter',
