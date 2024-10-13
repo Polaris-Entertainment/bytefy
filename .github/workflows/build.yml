@@ -51,7 +51,7 @@ jobs:
         name: angular-app
         path: tools/dist/angular-app
 
-- name: Create GitHub Release
+    - name: Create GitHub Release
       id: create_release
       uses: actions/create-release@v1
       env:
