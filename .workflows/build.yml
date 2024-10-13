@@ -3,10 +3,10 @@ name: Build and Release Angular App
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -25,17 +25,17 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build the Angular app
-      run: npm run build
+    - name: Install dependencies and build Angular app
+      run: |
+        cd ./tools
+        npm install
+        npm run build
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       with:
         name: angular-app
-        path: dist/angular-app
+        path: tools/dist/angular-app
 
   release:
     needs: build
@@ -49,7 +49,7 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: angular-app
-        path: dist/angular-app
+        path: tools/dist/angular-app
 
     - name: Create GitHub Release
       id: create_release
@@ -68,6 +68,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: dist/angular-app
+        asset_path: tools/dist/angular-app
         asset_name: angular-app.zip
         asset_content_type: application/zip
