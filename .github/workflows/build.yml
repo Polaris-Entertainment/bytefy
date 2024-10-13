@@ -28,7 +28,7 @@ jobs:
     - name: Install dependencies and build Angular app
       run: |
         cd ./tools
-        npm install
+        npm install --force
         npm run build
 
     - name: Upload build artifacts
