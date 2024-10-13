@@ -1,0 +1,9 @@
+<app-dual-textarea 
+  title="Text to Cron Expression"
+  topPlaceholder="every 5 minutes"
+  bottomPlaceholder="*/5 * * * *"
+  [bottomDisabled]="true"
+  [bottomValue]="cronExpression" 
+  [isBeta]="true"
+  (topChange)="getCronExpression($event)">
+</app-dual-textarea>

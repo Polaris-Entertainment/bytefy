@@ -1,0 +1,6 @@
+﻿services:
+  bytefy.image:
+    image: bytefy.image
+    build:
+      context: .
+      dockerfile: bytefy.image/Dockerfile

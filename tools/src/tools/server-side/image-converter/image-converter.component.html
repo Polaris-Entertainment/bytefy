@@ -1,0 +1,17 @@
+<app-file-converter 
+  title="Image converter"
+  method="post"
+  [isPreview]="false"
+  [fileTypeSelector]="true"
+  [processedFiles]="processedFiles" 
+  [fileFormats]="fileFormats"
+  [filteredFiles]="filteredFormats"
+  [baseUrl]="url"
+  [headers]="headers"
+  [isBeta]="true"
+  (autoComplete)="filterFormats($event)"
+  (fileSelected)="onFileSelected($event)"
+  (selectedFormat)="onFormatSelected($event)"
+  (upload)="onUploadClicked()"
+  >
+</app-file-converter>

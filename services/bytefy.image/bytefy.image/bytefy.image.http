@@ -1,0 +1,11 @@
+@bytefy.image_HostAddress = http://localhost:1337
+
+GET {{bytefy.image_HostAddress}}/
+Accept: application/json
+
+###
+
+GET {{bytefy.image_HostAddress}}/1
+Accept: application/json
+
+###
