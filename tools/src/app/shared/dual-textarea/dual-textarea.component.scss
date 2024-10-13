@@ -2,9 +2,20 @@
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    height: 100vh;
-    width: 98vw;
+    width: 96vw;
     
+    .icon {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding: 5px;
+      background-color: var(--primary-contrast);
+
+      i {
+        transform: rotate(90deg);
+      }
+    }
+
     .card {
         display: flex;
         flex-direction: column;

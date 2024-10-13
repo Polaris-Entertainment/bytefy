@@ -6,6 +6,7 @@ import { JwtToJsonComponent } from '../tools/client-side/jwt-to-json/jwt-to-json
 import { TextToCronComponent } from '../tools/client-side/text-to-cron/text-to-cron.component';
 import { DdsToPngComponent } from '../tools/client-side/dds-to-png/dds-to-png.component';
 import { ImageConverterComponent } from '../tools/server-side/image-converter/image-converter.component';
+import { WordCounterComponent } from '../tools/client-side/word-counter/word-counter.component';
 
 export const routes: Routes = [
   {
@@ -42,6 +43,11 @@ export const routes: Routes = [
     path: 'image-converter',
     pathMatch: 'full',
     component: ImageConverterComponent
+  },
+  {
+    path: 'text-counter',
+    pathMatch: 'full',
+    component: WordCounterComponent
   }
 ];
 

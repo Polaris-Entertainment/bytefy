@@ -8,6 +8,7 @@ import { AvatarModule } from 'primeng/avatar';
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
+	styleUrls: ['./header.component.scss'],
     standalone: true,
     imports: [MegaMenuModule, ButtonModule, CommonModule, AvatarModule]
 })
@@ -27,6 +28,11 @@ export class HeaderComponent implements OnInit {
 													label: 'Ascii to text',
 													routerLink: 'ascii-to-text',
 													routerLinkActiveOptions: { exact: true }
+											},
+											{
+												label: 'Text counter',
+												routerLink: 'text-counter',
+												routerLinkActiveOptions: { exact: true }
 											},
 											{
 												label: 'Guid Generator',

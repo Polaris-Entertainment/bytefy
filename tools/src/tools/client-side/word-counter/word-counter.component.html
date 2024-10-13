@@ -1,0 +1,8 @@
+<app-dual-textarea 
+  title="Text Counter"
+  topPlaceholder="Enter Text here..."
+  bottomPlaceholder="Stats will appear here..."
+  [bottomDisabled]="true"
+  [bottomValue]="this.result" 
+  (topChange)="onTextChange($event)">
+</app-dual-textarea>
