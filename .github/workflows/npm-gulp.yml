@@ -23,5 +23,5 @@ jobs:
     - name: Build
       run: |
         cd ./tools
-        npm install
+        npm install --force
         gulp
