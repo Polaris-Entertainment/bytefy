@@ -4,8 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DdsToPngService {
-  constructor() {}
-
   parseHeaders(arrayBuffer: ArrayBuffer) {
     const header = new DataView(arrayBuffer, 0, 128);
     const height = header.getUint32(12, true);

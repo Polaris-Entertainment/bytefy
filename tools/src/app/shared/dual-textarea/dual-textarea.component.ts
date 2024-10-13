@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { PanelModule } from 'primeng/panel';
+import { TagModule } from 'primeng/tag';
 
 @Component({
   selector: 'app-dual-textarea',
@@ -15,7 +16,8 @@ import { PanelModule } from 'primeng/panel';
     InputTextareaModule, 
     FormsModule, 
     PanelModule, 
-    CommonModule
+    CommonModule,
+    TagModule
   ]
 
 })
@@ -27,6 +29,7 @@ export class DualTextareaComponent {
   @Input() bottomPlaceholder: string = 'Right Textarea';
   @Input() topValue: string = '';
   @Input() bottomValue: string = '';
+  @Input() isBeta: boolean = false;
   @Output() topChange = new EventEmitter<string>();
   @Output() bottomChange = new EventEmitter<string>();
 

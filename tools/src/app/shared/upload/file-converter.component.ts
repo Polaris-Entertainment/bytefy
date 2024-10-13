@@ -1,10 +1,14 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { FileSelectEvent, FileUploadModule } from 'primeng/fileupload';
+import { FileSelectEvent, FileUploadEvent, FileUploadModule } from 'primeng/fileupload';
 import { ButtonModule } from 'primeng/button';
 import { PanelModule } from 'primeng/panel';
 import { TableModule } from 'primeng/table';
+import { AutoCompleteCompleteEvent, AutoCompleteModule, AutoCompleteSelectEvent } from 'primeng/autocomplete';
+import { BadgeModule } from 'primeng/badge';
+import { HttpHeaders } from '@angular/common/http';
+import { TagModule } from 'primeng/tag';
 
 interface ProcessedFile {
   name: string;
@@ -23,16 +27,26 @@ interface ProcessedFile {
     FileUploadModule,
     ButtonModule,
     PanelModule,
-    TableModule
+    TableModule,
+    AutoCompleteModule,
+    BadgeModule,
+    TagModule
   ]
 })
-export class FileConverterComponent {
+export class FileConverterComponent implements OnInit {
   _fileFormats: string[] = [];
   accept: string = '';
+  selected = '';
+  invalidFileTypeMessageSummary: string = '';
+  url: string = '';
+  requestHeaders: any;
+  selectedFile: File[] | null = null;
 
   @Output() fileSelected = new EventEmitter<File[]>();
+  @Input() isBeta: boolean = false;
+  @Input() filteredFiles: string[] = [];
   @Input() isPreview: boolean = true;
-  @Input () title: string = 'File Converter';
+  @Input() title: string = 'File Converter';
   @Input() processedFiles: ProcessedFile[] = [];
   @Input()
   set fileFormats(formats: string[]) {
@@ -40,14 +54,44 @@ export class FileConverterComponent {
     this.accept = formats.join(',');
   }
 
+  // File type selector
+  @Output() autoComplete = new EventEmitter<AutoCompleteCompleteEvent>();
+  @Output() selectedFormat = new EventEmitter<string>();
+  @Input() fileTypeSelector: boolean = false;
+
+  // Upload file to server
+  @Input() baseUrl = '';
+  @Input() method : 'post' | 'put' = 'post';
+  @Input() headers: HttpHeaders = new HttpHeaders();
+  @Output() upload = new EventEmitter<FileUploadEvent>();
+
   get fileFormats(): string[] {
     return this._fileFormats;
   }
 
-  selectedFile: File[] | null = null;
+  ngOnInit(): void {
+    this.requestHeaders = this.headers;
+  }
+
+  choose(_: any, callback: () => void) {
+      callback();
+  }
 
   onFileSelect(event: FileSelectEvent): void {
-    this.selectedFile = event.files;
+    this.selectedFile = event.currentFiles;
     this.fileSelected.emit(this.selectedFile!);
+  }
+
+  onAutoComplete(event: AutoCompleteCompleteEvent): void {
+    this.autoComplete.emit(event);
+  }
+
+  onAutoCompleteDropdownClick(event: AutoCompleteSelectEvent): void {
+    this.selectedFormat.emit(event.value.name);
+    this.selected = event.value.name;
+  }
+
+  onUploadEvent() {
+    this.upload.emit();
   }
 }

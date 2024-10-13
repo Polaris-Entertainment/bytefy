@@ -1,5 +1,8 @@
 <div class="card flex justify-center">
     <p-panel [header]="title">
+      <ng-template pTemplate="header">
+        <p-tag *ngIf="isBeta" severity="warn" value="Beta"></p-tag>
+      </ng-template>
       <textarea 
         (keyup)="onTopChange($event)"
         [disabled]="topDisabled"

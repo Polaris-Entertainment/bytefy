@@ -65,6 +65,11 @@ export class HeaderComponent implements OnInit {
 											label: 'DDS to PNG',
 											routerLink: 'dds-to-png',
 											routerLinkActiveOptions: { exact: true }
+										},
+										{
+											label: 'Image Converter',
+											routerLink: 'image-converter',
+											routerLinkActiveOptions: { exact: true }
 										}
 									]
 								}

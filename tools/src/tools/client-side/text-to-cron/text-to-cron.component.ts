@@ -9,7 +9,6 @@ import { DualTextareaComponent } from '../../../app/shared/dual-textarea/dual-te
   imports: [DualTextareaComponent]
 })
 export class TextToCronComponent {
-
   cronExpression: string = '';
 
   getCronExpression(description: string): string {

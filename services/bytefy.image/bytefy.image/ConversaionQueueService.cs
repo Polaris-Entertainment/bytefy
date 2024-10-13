@@ -36,13 +36,24 @@ public class ConversionQueueService : BackgroundService
 
     private Task<(byte[], string)> ProcessConversionAsync(ConversionTask task)
     {
-        using var magickImage = new MagickImage(task.ImageData);
-        magickImage.Format = task.Format;
-        var resultStream = new MemoryStream();
-        magickImage.Write(resultStream);
-        resultStream.Position = 0;
+        try
+        {
+            using var magickImage = new MagickImage(task.ImageData);
+            magickImage.Format = task.Format;
+            var resultStream = new MemoryStream();
+            magickImage.Write(resultStream);
+            resultStream.Position = 0;
 
-        var mimeType = MimeTypes.MimeTypeMap.GetMimeType($"image/{task.Format.ToString().ToLower()}");
-        return Task.FromResult((resultStream.ToArray(), mimeType));
+            var mimeType = MimeTypes.MimeTypeMap.GetMimeType($"image/{task.Format.ToString().ToLower()}");
+            return Task.FromResult((resultStream.ToArray(), mimeType));
+        }
+        catch (MagickImageErrorException ex)
+        {
+            // Log the error message
+            Console.WriteLine($"Image conversion failed: {ex.Message}");
+
+            // Return a default value or handle the error as appropriate for your application
+            return Task.FromResult<(byte[], string)>((null, null));
+        }
     }
 }

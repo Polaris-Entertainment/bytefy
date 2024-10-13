@@ -5,6 +5,7 @@ import { Base64ConverterComponent } from '../tools/client-side/base64-converter/
 import { JwtToJsonComponent } from '../tools/client-side/jwt-to-json/jwt-to-json.component';
 import { TextToCronComponent } from '../tools/client-side/text-to-cron/text-to-cron.component';
 import { DdsToPngComponent } from '../tools/client-side/dds-to-png/dds-to-png.component';
+import { ImageConverterComponent } from '../tools/server-side/image-converter/image-converter.component';
 
 export const routes: Routes = [
   {
@@ -36,6 +37,11 @@ export const routes: Routes = [
     path: 'dds-to-png',
     pathMatch: 'full',
     component: DdsToPngComponent
+  },
+  {
+    path: 'image-converter',
+    pathMatch: 'full',
+    component: ImageConverterComponent
   }
 ];
 
