@@ -1,6 +1,3 @@
-Myxelium: Create a readme on how to start the apps
-
-GitHub Copilot: # README
 
 ## Overview
 
