@@ -3,13 +3,17 @@ using ImageMagick;
 using Microsoft.AspNetCore.Antiforgery;
 
 var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddAntiforgery(options => options.HeaderName = "2311d8d8-607d-4747-8939-1bde65643254");
 builder.Services.AddSingleton<ConversionQueueService>();
 builder.Services.AddHostedService(provider => provider.GetRequiredService<ConversionQueueService>());
+
+var corsSettings = builder.Configuration.GetSection("Cors").Get<CorsSettings>();
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
-        builder => builder.WithOrigins("http://localhost:4200")
+        builder => builder.WithOrigins(corsSettings.AllowedOrigins)
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials());
