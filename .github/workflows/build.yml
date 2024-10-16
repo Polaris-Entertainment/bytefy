@@ -86,5 +86,5 @@ jobs:
     - name: Copy .NET Publish Files to IIS Server
       run: |
         xcopy ".\output\dotnet\*" "C:\inetpub\applications\bytefy.image" /s /i /y
-        xcopy ".\tools\dist\*" "C:\inetpub\wwwroot\bytefy" /s /i /y
+        xcopy ".\tools\dist\browser\*" "C:\inetpub\wwwroot\bytefy" /s /i /y
 
