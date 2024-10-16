@@ -1,73 +1,65 @@
-name: Build and Release Angular App
+name: Build and Deploy
 
 on:
   push:
     branches:
-      - master
-  pull_request:
-    branches:
-      - master
+      - master  # Change to your default branch if different
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [22.1]
+    runs-on: self-hosted  # Ensure your self-hosted runner is configured
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+    - name: Checkout Repository
+      uses: actions/checkout@v2
 
-    - name: Setup Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v2
       with:
-        node-version: ${{ matrix.node-version }}
+        dotnet-version: '8.0'  # Change to your required .NET version
 
-    - name: Install dependencies and build Angular app
+    - name: Restore .NET Dependencies
+      run: dotnet restore ./services/bytefy.image/bytefy.image/bytefy.image.csproj
+
+    - name: Build .NET Project
+      run: dotnet build --configuration Release ./services/bytefy.image/bytefy.image/bytefy.image.csproj
+
+    - name: Publish .NET Project
+      run: dotnet publish ./services/bytefy.image/bytefy.image/bytefy.image.csproj --configuration Release --output ./output/dotnet
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '22.1.0'  # Change to your required Node.js version
+
+    - name: Install Angular CLI
+      run: npm install -g @angular/cli
+
+    - name: Install Angular Dependencies
       run: |
         cd ./tools
         npm install --force
-        npm run build
 
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: angular-app
-        path: tools/dist/angular-app
+    - name: Build Angular App
+      run: |
+        cd ./tools
+        ng build --configuration production --output-path=dist
 
-  release:
+  deploy:
+    runs-on: self-hosted  # Ensure your self-hosted runner is configured
     needs: build
-    runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+    - name: Checkout Repository
+      uses: actions/checkout@v2
 
-    - name: Download build artifacts
-      uses: actions/download-artifact@v3
-      with:
-        name: angular-app
-        path: tools/dist/angular-app
+    - name: Copy .NET Publish Files to IIS Server
+      run: |
+        xcopy ./output/dotnet/* "C:\inetpub\applications\bytefy.image" /s /i /y
+        xcopy ./tools/dist/tools/browser* "C:\inetpub\wwwroot\bytefy" /s /i /y
 
-    - name: Create GitHub Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ github.sha }}
-        release_name: Release ${{ github.sha }}
-        draft: false
-        prerelease: false
-
-    - name: Upload build artifact to Release
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: tools/dist/angular-app
-        asset_name: angular-app.zip
-        asset_content_type: application/zip
+    - name: Restart IIS
+      run: |
+        Import-Module WebAdministration
+        Restart-WebAppPool -Name "Bytefy"  # Change to your App Pool Name
+        Restart-WebAppPool -Name "Bytefy.image"  # Change to your App Pool Name
