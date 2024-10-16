@@ -53,6 +53,10 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
+    - name: Wait for 300 seconds
+      run: |
+          echo "Waiting for 300 seconds..."
+          sleep 300
     - name: Check Output Files
       run: |
         dir ./output/dotnet
