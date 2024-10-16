@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  uploadServiceBaseUrl: 'http://image.bytefy.net'
+  uploadServiceBaseUrl: 'https://image.bytefy.net'
 };
