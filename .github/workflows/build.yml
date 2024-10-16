@@ -85,11 +85,7 @@ jobs:
     
     - name: Copy .NET Publish Files to IIS Server
       run: |
+        iisreset /stop
         xcopy ".\output\dotnet\*" "C:\inetpub\applications\bytefy.image" /s /i /y
         xcopy ".\tools\dist\*" "C:\inetpub\wwwroot\bytefy" /s /i /y
-
-    - name: Restart IIS
-      run: |
-        Import-Module WebAdministration
-        Restart-WebAppPool -Name "Bytefy"  # Change to your App Pool Name
-        Restart-WebAppPool -Name "Bytefy.image"  # Change to your App Pool Name
+        iisreset /start
