@@ -55,9 +55,8 @@ jobs:
 
     - name: Copy .NET Publish Files to IIS Server
       run: |
-        ECHO %cd%
         xcopy ./output/dotnet/* "C:\inetpub\applications\bytefy.image" /s /i /y
-        xcopy bytefy\bytefy\tools\* "C:\inetpub\wwwroot\bytefy" /s /i /y
+        xcopy bytefy\bytefy\tools\dist\* "C:\inetpub\wwwroot\bytefy" /s /i /y
 
     - name: Restart IIS
       run: |
