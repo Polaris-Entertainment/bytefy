@@ -53,6 +53,11 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
+    - name: Check Output Files
+      run: |
+        dir ./output/dotnet
+        dir bytefy\bytefy\tools\dist
+    
     - name: Copy .NET Publish Files to IIS Server
       run: |
         xcopy ".\output\dotnet\*" "C:\inetpub\applications\bytefy.image" /s /i /y
