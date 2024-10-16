@@ -52,7 +52,7 @@ jobs:
         path: ./output/dotnet
 
     - name: Upload Angular Artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: angular-artifacts
         path: ./tools/dist
@@ -63,7 +63,7 @@ jobs:
 
     steps:
     - name: Download .NET Artifacts
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: dotnet-artifacts
         path: ./output/dotnet
