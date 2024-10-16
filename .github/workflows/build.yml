@@ -45,27 +45,44 @@ jobs:
         cd ./tools
         ng build --configuration production --output-path=dist
 
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: dotnet-artifacts
+        path: ./output/dotnet
+
+    - name: Upload Angular Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: angular-artifacts
+        path: ./tools/dist
+
   deploy:
     runs-on: self-hosted  # Ensure your self-hosted runner is configured
     needs: build
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+    - name: Download .NET Artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: dotnet-artifacts
+        path: ./output/dotnet
 
-    - name: Wait for 300 seconds
-      run: |
-          echo "Waiting for 300 seconds..."
-          sleep 300
+    - name: Download Angular Artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: angular-artifacts
+        path: ./tools/dist
+
     - name: Check Output Files
       run: |
         dir ./output/dotnet
-        dir bytefy\bytefy\tools\dist
+        dir ./tools/dist
     
     - name: Copy .NET Publish Files to IIS Server
       run: |
         xcopy ".\output\dotnet\*" "C:\inetpub\applications\bytefy.image" /s /i /y
-        xcopy ".\bytefy\dist\*" "C:\inetpub\wwwroot\bytefy" /s /i /y
+        xcopy ".\tools\dist\*" "C:\inetpub\wwwroot\bytefy" /s /i /y
 
     - name: Restart IIS
       run: |
