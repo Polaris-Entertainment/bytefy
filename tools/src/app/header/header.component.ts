@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
 	isDarkMode: boolean = true;
 
   ngOnInit() {
-			this.isDarkMode = window?.matchMedia?.('(prefers-color-scheme:dark)')?.matches;
+    this.isDarkMode = window?.matchMedia?.('(prefers-color-scheme:dark)')?.matches;
 
       this.items = [
           {
@@ -95,7 +95,30 @@ export class HeaderComponent implements OnInit {
 								}
 							]
 						]
-					}
+					},
+          {
+            label: 'Generators',
+            icon: 'pi pi-box',
+            items: [
+              [
+                {
+                  label: 'Generators',
+                  items: [
+                    {
+                      label: 'QR Code Generator',
+                      routerLink: 'qr-code-generator',
+                      routerLinkActiveOptions: { exact: true }
+                    },
+                    {
+                      label: 'Guid Generator',
+                      routerLink: 'guid',
+                      routerLinkActiveOptions: { exact: true }
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
       ]
   }
 }

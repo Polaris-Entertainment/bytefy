@@ -3,6 +3,7 @@
     <p-tag *ngIf="isBeta" severity="warn" value="Beta"></p-tag>
   </ng-template>
   <textarea 
+    pInputTextarea
     (keyup)="onTopChange($event)"
     [disabled]="topDisabled"
     pTextarea

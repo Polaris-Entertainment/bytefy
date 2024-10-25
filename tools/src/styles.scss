@@ -3,11 +3,15 @@
 body,
 body .p-component
 {
-
   font-family: "Roboto Mono", monospace;
   font-optical-sizing: auto;
   font-weight: 304;
   font-style: normal;
+  margin: 0px;
+}
+
+html {
+  background-color: #121212;
 }
 
 * {

@@ -8,6 +8,7 @@ import { DdsToPngComponent } from '../tools/client-side/dds-to-png/dds-to-png.co
 import { ImageConverterComponent } from '../tools/server-side/image-converter/image-converter.component';
 import { WordCounterComponent } from '../tools/client-side/word-counter/word-counter.component';
 import { ColorPickerComponent } from '../tools/client-side/color-picker/color-picker.component';
+import { QrCodeGeneratorComponent } from '../tools/client-side/qr-code-generator/qr-code-generator.component';
 
 export const routes: Routes = [
   {
@@ -49,6 +50,11 @@ export const routes: Routes = [
     path: 'text-counter',
     pathMatch: 'full',
     component: WordCounterComponent
+  },
+  {
+    path: 'qr-code-generator',
+    pathMatch: 'full',
+    component: QrCodeGeneratorComponent
   },
   {
     path: 'color-picker',

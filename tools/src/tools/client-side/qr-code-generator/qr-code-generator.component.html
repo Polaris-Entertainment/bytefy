@@ -1,0 +1,89 @@
+
+<div class="card flex justify-center">
+  <p-panel header="QR Code Generator">
+    <ng-template pTemplate="header">
+      <p-tag *ngIf="isBeta" severity="warn" value="Beta"></p-tag>
+    </ng-template>
+
+    <div class="wrapper">
+      <p-message *ngIf="error.error" severity="error">{{error.message}}</p-message>
+      <qrcode
+        (qrCodeURL)="onCodeUrlChanged($event)"
+        [qrdata]="qrCodeData"
+        [allowEmptyString]="true"
+        [ariaLabel]="'QR Code image with the following content...'"
+        [cssClass]="'center'"
+        [colorDark]="colorCode"
+        [colorLight]="backgroundColorCode"
+        [elementType]="'canvas'"
+        [errorCorrectionLevel]="level"
+        [imageSrc]="innerQrCodeimage"
+        [imageHeight]="75"
+        [imageWidth]="75"
+        [margin]="4"
+        [scale]="1"
+        [title]="qrCodeData"
+        [width]="qrCodeSize"
+      ></qrcode>
+            
+      <p-toolbar>
+        <div class="p-toolbar-group-start">
+            <input type="file" style="display:none" #fileSelector (change)="onFileSelected($event)" />
+            <p-button icon="pi pi-print" class="mr-2 miniButtons" (click)="onPrintButtonClick()"/>
+            <p-button icon="pi pi-upload" class="miniButtons" type="file" (click)="fileSelector.click()"/>
+        </div>
+        <div class="p-toolbar-group-center" *ngIf="!isMobile">
+          <input type="text" pInputText formControlName="text" [value]="qrCodeData" (keyup)="onDataTextInputChanged($event)" />
+          <p-button [icon]="expandIcon" severity="info" (click)="onExpandButtonClick()" />
+        </div>
+        <div class="p-toolbar-group-end">
+          <a [href]="qrCodeImageUrl" download="qrcode" >
+            <p-button label="Save" icon="pi pi-download" class="button-size" />
+          </a>
+        </div>
+        <div class="p-toolbar-group-center" *ngIf="isMobile">
+          <input type="text" pInputText formControlName="text" [value]="qrCodeData" (keyup)="onDataTextInputChanged($event)" />
+          <p-button [icon]="expandIcon" severity="info" (click)="onExpandButtonClick()" />
+        </div>
+      </p-toolbar>
+    </div>
+    <textarea
+      *ngIf="extendedInput"
+      (keyup)="onDataTextInputChanged($event)"
+      [value]="qrCodeData"
+      pInputTextarea 
+      [autoResize]="true" 
+      [fluid]="true" 
+      rows="5" 
+      cols="30" 
+      placeholder="Contents of QR Code"
+    ></textarea>
+    <p-accordion [multiple]="true" [activeIndex]="activeTabs">
+      <p-accordionTab 
+        header="More settings"
+        value="1"
+      >
+      <div class="vertical">
+        <p>Size of QR Code</p>
+        <input type="number" max="1000" pInputText autocomplete="off" placeholder="Size" value="300" (keyup)="onSizeInputChanged($event)" />
+
+        <p>Image in QR code</p>
+        <input pInputText autocomplete="off" placeholder="Image url" (keyup)="onImageLinkInputChanged($event)"/>
+
+        <p>Error correction level</p>
+        <p-selectbutton [options]="correctionLevel" optionLabel="level" (onChange)="onLevelSelected($event)">
+          <ng-template pTemplate="item" let-item>
+              <i>{{item.level}}</i>
+          </ng-template>
+        </p-selectbutton>
+
+        <p>Color</p>
+        <p-colorpicker [inline]="true" (onChange)="onColorChanged($event)"/>
+
+        <p>Background color</p>
+        <p-colorpicker [inline]="true" (onChange)="onBackgroundColorChanged($event)"/>
+      </div>
+      </p-accordionTab>
+    </p-accordion>
+  </p-panel>
+</div>

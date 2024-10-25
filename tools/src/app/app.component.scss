@@ -3,6 +3,10 @@
     justify-content: center;
 }
 
+.darkmode {
+  background-color: #121212;
+}
+
 ::ng-deep {
     .p-panel {
       border-radius: unset !important;
