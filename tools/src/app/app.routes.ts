@@ -7,6 +7,7 @@ import { TextToCronComponent } from '../tools/client-side/text-to-cron/text-to-c
 import { DdsToPngComponent } from '../tools/client-side/dds-to-png/dds-to-png.component';
 import { ImageConverterComponent } from '../tools/server-side/image-converter/image-converter.component';
 import { WordCounterComponent } from '../tools/client-side/word-counter/word-counter.component';
+import { ColorPickerComponent } from '../tools/client-side/color-picker/color-picker/color-picker.component';
 
 export const routes: Routes = [
   {
@@ -48,6 +49,11 @@ export const routes: Routes = [
     path: 'text-counter',
     pathMatch: 'full',
     component: WordCounterComponent
+  },
+  {
+    path: 'color-picker',
+    pathMatch: 'full',
+    component: ColorPickerComponent
   }
 ];
 
