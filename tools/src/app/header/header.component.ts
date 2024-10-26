@@ -53,6 +53,11 @@ export class HeaderComponent implements OnInit {
 												label: 'Text to Cron Expression',
 												routerLink: 'text-to-cron',
 												routerLinkActiveOptions: { exact: true }
+											},
+											{
+												label: 'Color picker',
+												routerLink: 'color-picker',
+												routerLinkActiveOptions: { exact: true }
 											}
 									],
 									
