@@ -1,5 +1,5 @@
 <p-megamenu [model]="items">
     <ng-template pTemplate="start">
-        <img class="logotype" src="../../assets/logo-full-orange-beta.png" alt="logo" />
+        <img [ngClass]="{'logotype': true, 'darkMode': !isDarkMode}" src="../../assets/logo-full-orange-beta.png" alt="logo" />
     </ng-template>
 </p-megamenu>

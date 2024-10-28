@@ -1,76 +1,74 @@
-<div class="card flex justify-center">
-  <p-panel [header]="title">
-    <ng-template pTemplate="header">
-      <p-tag *ngIf="isBeta" severity="warn" value="Beta"></p-tag>
-    </ng-template>
+<page [header]="title">
+  <ng-template pTemplate="header">
+    <p-tag *ngIf="isBeta" severity="warn" value="Beta"></p-tag>
+  </ng-template>
 
-    <p-fileUpload 
-      name="file" 
-      (onSelect)="onFileSelect($event)" 
-      [auto]="true"
-      [accept]="accept"
-      [previewWidth]="isPreview ? '50px' : '0px'"
-      mode="advanced"
-      [url]="url"
-      [withCredentials]="true"
-      [method]="method"
-      [headers]="requestHeaders"
-    >
-    <ng-template
-      *ngIf="fileTypeSelector"
-      pTemplate="header"
-      let-files
-      let-chooseCallback="chooseCallback"
-      let-clearCallback="clearCallback"
-      let-uploadCallback="uploadCallback"
-    >
-      <p-button
-        (onClick)="choose($event, chooseCallback)"
-        icon="pi pi-images"
-        [rounded]="true"
-        [outlined]="true"
-      />
-
-      <p-autoComplete
-        *ngIf="fileTypeSelector"
-        (onSelect)="onAutoCompleteDropdownClick($event)"
-        [virtualScroll]="true"
-        [suggestions]="filteredFiles"
-        [virtualScrollItemSize]="34"
-        (completeMethod)="onAutoComplete($event)" 
-        optionLabel="name"
-        [dropdown]="true"
-        placeholder="Select a output format"
-      />
-
-      <p-button
-        (onClick)="onUploadEvent()"
-        icon="pi pi-file-arrow-up"
-        [rounded]="true"
-        [outlined]="true"
+  <p-fileUpload 
+    name="file" 
+    (onSelect)="onFileSelect($event)" 
+    [auto]="true"
+    [accept]="accept"
+    [previewWidth]="isPreview ? '50px' : '0px'"
+    mode="advanced"
+    [url]="url"
+    [withCredentials]="true"
+    [method]="method"
+    [headers]="requestHeaders"
+  >
+  <ng-template
+    *ngIf="fileTypeSelector"
+    pTemplate="header"
+    let-files
+    let-chooseCallback="chooseCallback"
+    let-clearCallback="clearCallback"
+    let-uploadCallback="uploadCallback"
+  >
+    <p-button
+      (onClick)="choose($event, chooseCallback)"
+      icon="pi pi-images"
+      [rounded]="true"
+      [outlined]="true"
     />
-    </ng-template>
 
-    <ng-template *ngIf="fileTypeSelector" pTemplate="empty">
-        <div>Drag and drop files to here to upload.</div>
-    </ng-template>
+    <p-autoComplete
+      *ngIf="fileTypeSelector"
+      (onSelect)="onAutoCompleteDropdownClick($event)"
+      [virtualScroll]="true"
+      [suggestions]="filteredFiles"
+      [virtualScrollItemSize]="34"
+      (completeMethod)="onAutoComplete($event)" 
+      optionLabel="name"
+      [dropdown]="true"
+      placeholder="Select a output format"
+    />
 
-    </p-fileUpload>
-    <p-table [value]="processedFiles" *ngIf="processedFiles.length != 0">
-      <ng-template pTemplate="header">
-        <tr>
-          <th>Name</th>
-          <th>Format</th>
-          <th>Download</th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-file>
-        <tr>
-          <td>{{file.name}}</td>
-          <td>{{file.format}}</td>
-          <td><a [href]="file.link" [download]="file.name">{{file.name}}</a></td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </p-panel>
-</div>
+    <p-button
+      (onClick)="onUploadEvent()"
+      icon="pi pi-file-arrow-up"
+      [rounded]="true"
+      [outlined]="true"
+  />
+  </ng-template>
+
+  <ng-template *ngIf="fileTypeSelector" pTemplate="empty">
+      <div>Drag and drop files to here to upload.</div>
+  </ng-template>
+
+  </p-fileUpload>
+  <p-table [value]="processedFiles" *ngIf="processedFiles.length != 0">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Name</th>
+        <th>Format</th>
+        <th>Download</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-file>
+      <tr>
+        <td>{{file.name}}</td>
+        <td>{{file.format}}</td>
+        <td><a [href]="file.link" [download]="file.name">{{file.name}}</a></td>
+      </tr>
+    </ng-template>
+  </p-table>
+</page>

@@ -16,6 +16,9 @@ export class AppComponent {
   title = 'tools';
 
   constructor(private config: PrimeNGConfig) {
-    this.config.theme.set({ preset: Lara });
+    this.config.theme.set({ 
+      preset: Lara,
+      darkModeSelector: '.darkmode' 
+    });
   }
 }

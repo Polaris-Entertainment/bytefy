@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import { PageComponent } from '../../../app/shared/page/page.component';
 
 @Component({
   selector: 'app-color-picker',
@@ -12,7 +13,8 @@ import { InputTextModule } from 'primeng/inputtext';
     FormsModule,
     InputTextModule,
     ButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PageComponent
   ],
   templateUrl: './color-picker.component.html',
   styleUrl: './color-picker.component.scss'

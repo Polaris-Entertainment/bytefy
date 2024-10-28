@@ -5,6 +5,7 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { PanelModule } from 'primeng/panel';
 import { TagModule } from 'primeng/tag';
+import { PageComponent } from '../page/page.component';
 
 @Component({
   selector: 'app-dual-textarea',
@@ -17,7 +18,8 @@ import { TagModule } from 'primeng/tag';
     FormsModule, 
     PanelModule, 
     CommonModule,
-    TagModule
+    TagModule,
+    PageComponent
   ]
 
 })

@@ -8,27 +8,26 @@ import { AvatarModule } from 'primeng/avatar';
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
-	styleUrls: ['./header.component.scss'],
+		styleUrls: ['./header.component.scss'],
     standalone: true,
     imports: [MegaMenuModule, ButtonModule, CommonModule, AvatarModule]
 })
 export class HeaderComponent implements OnInit {
   items: MegaMenuItem[] | undefined;
+	isDarkMode: boolean = true;
 
   ngOnInit() {
+			this.isDarkMode = window?.matchMedia?.('(prefers-color-scheme:dark)')?.matches;
+
       this.items = [
           {
-						label: 'Text Tools',
-						icon: 'pi pi-box',
+						label: 'Tools',
+						icon: 'pi pi-wrench',
 						items: [
 							[
 								{
+									label: 'Text Tools',
 									items: [
-											{
-													label: 'Ascii to text',
-													routerLink: 'ascii-to-text',
-													routerLinkActiveOptions: { exact: true }
-											},
 											{
 												label: 'Text counter',
 												routerLink: 'text-counter',
@@ -40,11 +39,6 @@ export class HeaderComponent implements OnInit {
 												routerLinkActiveOptions: { exact: true }
 											},
 											{
-												label: 'Base64 Converter',
-												routerLink: 'base64-converter',
-												routerLinkActiveOptions: { exact: true }
-											},
-											{
 												label: 'Jwt decoder',
 												routerLink: 'jwt-decoder',
 												routerLinkActiveOptions: { exact: true }
@@ -53,14 +47,18 @@ export class HeaderComponent implements OnInit {
 												label: 'Text to Cron Expression',
 												routerLink: 'text-to-cron',
 												routerLinkActiveOptions: { exact: true }
-											},
-											{
-												label: 'Color picker',
-												routerLink: 'color-picker',
-												routerLinkActiveOptions: { exact: true }
 											}
 									],
-									
+								},
+								{
+									label: 'Media Tools',
+									items: [
+										{
+											label: 'Color picker',
+											routerLink: 'color-picker',
+											routerLinkActiveOptions: { exact: true }
+										}
+									]
 								}
 							]
             ]
@@ -71,6 +69,7 @@ export class HeaderComponent implements OnInit {
 						items: [
 							[
 								{
+									label: 'Convert',
 									items: [
 										{
 											label: 'DDS to PNG',
@@ -80,6 +79,16 @@ export class HeaderComponent implements OnInit {
 										{
 											label: 'Image Converter',
 											routerLink: 'image-converter',
+											routerLinkActiveOptions: { exact: true }
+										},
+										{
+											label: 'Base64 Converter',
+											routerLink: 'base64-converter',
+											routerLinkActiveOptions: { exact: true }
+										},
+										{
+											label: 'Ascii to text',
+											routerLink: 'ascii-to-text',
 											routerLinkActiveOptions: { exact: true }
 										}
 									]

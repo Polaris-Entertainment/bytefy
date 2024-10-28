@@ -9,3 +9,17 @@ body .p-component
   font-weight: 304;
   font-style: normal;
 }
+
+* {
+  border-radius: unset !important;
+}
+
+.p-megamenu {
+  background: unset !important;
+}
+
+.p-megamenu-overlay {
+  background: var(--p-surface-800) !important;
+  border: unset !important;
+  border-radius: unset !important;
+}
