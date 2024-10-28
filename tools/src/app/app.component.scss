@@ -2,3 +2,21 @@
     display: flex;
     justify-content: center;
 }
+
+::ng-deep {
+    .p-panel {
+      border-radius: unset !important;
+    }
+    
+    .p-panel-header {
+      background: unset !important;
+    }
+
+    .p-fileupload-header {
+      background: unset !important;
+    }
+
+    .p-fileupload {
+        background: unset !important;
+    }
+}

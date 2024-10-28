@@ -1,3 +1,12 @@
 .logotype {
     width: 140px;
 }
+
+.darkMode {
+    filter: invert(1);
+}
+
+::ng-deep .p-megamenu-col-12 {
+    flex-direction: row !important;
+    display: flex !important;
+}

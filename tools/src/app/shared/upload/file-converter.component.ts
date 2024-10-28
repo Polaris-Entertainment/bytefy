@@ -9,6 +9,7 @@ import { AutoCompleteCompleteEvent, AutoCompleteModule, AutoCompleteSelectEvent 
 import { BadgeModule } from 'primeng/badge';
 import { HttpHeaders } from '@angular/common/http';
 import { TagModule } from 'primeng/tag';
+import { PageComponent } from '../page/page.component';
 
 interface ProcessedFile {
   name: string;
@@ -30,7 +31,8 @@ interface ProcessedFile {
     TableModule,
     AutoCompleteModule,
     BadgeModule,
-    TagModule
+    TagModule,
+    PageComponent
   ]
 })
 export class FileConverterComponent implements OnInit {
