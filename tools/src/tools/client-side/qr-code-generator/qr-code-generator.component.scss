@@ -1,0 +1,103 @@
+:host {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  width: 96vw;
+  
+  .miniButtons {
+      margin: 0px 4px;
+  }
+
+  .wrapper {
+      display: flex;
+      flex-direction: column;
+      background-color: #000000;
+  }
+
+  a.disabled {
+    pointer-events: none;
+    cursor: default;
+  }
+
+  .card {
+      display: flex;
+      flex-direction: column;
+      width: 1140px;
+  }
+  
+  .center {
+      display: flex;
+      justify-content: center;
+  }
+
+  .p-toolbar-group-end, .p-toolbar-group-center, .p-toolbar-group-start {
+    width: 300px;
+    ::ng-deep {
+      .p-button {
+        height: 39px !important;
+      }
+    }
+  }
+
+  .p-toolbar-group-end {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .p-toolbar-group-center .p-inputtext {
+    width: calc(100% - 44px);
+  }
+  
+  qrcode {
+    display: flex;
+    justify-content: center;
+  }
+
+  .vertical {
+    display: flex;
+    flex-direction: column;
+  }
+    
+  ::ng-deep .p-panel-header {
+    justify-content: unset !important;
+
+    * {
+      margin-right: 5px;
+    }
+  }
+
+  @media only screen and (max-width: 1021px) {
+    .p-toolbar-group-end, .p-toolbar-group-start {
+      width: unset;
+      
+      ::ng-deep {
+        .p-button {
+          height: 40px !important;
+        }
+        p-button {
+          height: 40px !important;
+          margin: 0px 4px 0px 0px !important;
+        }
+      }
+    }
+  
+    .p-toolbar-group-end {
+      display: flex;
+      justify-content: flex-start;
+
+      ::ng-deep {
+        p-button {
+          margin: 0px 0px 0px 0px !important;
+        }
+      }
+    }
+  
+    .p-toolbar-group-center {
+      width: 100%;
+    
+      .p-inputtext {
+        width: calc(100% - 44px);
+      }
+    }
+  }
+}

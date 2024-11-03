@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { PrimeNGConfig } from 'primeng/api';
-import { Lara } from 'primeng/themes/lara';
 import { FooterComponent } from './footer/footer.component';
+import { Lara } from 'primeng/themes/lara';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,7 @@ import { FooterComponent } from './footer/footer.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'tools';
 
   constructor(private config: PrimeNGConfig) {
@@ -20,5 +20,9 @@ export class AppComponent {
       preset: Lara,
       darkModeSelector: '.darkmode' 
     });
+  }
+  ngOnInit(): void {
+    const element = document.querySelector('html');
+    element?.classList.toggle('darkmode');
   }
 }
