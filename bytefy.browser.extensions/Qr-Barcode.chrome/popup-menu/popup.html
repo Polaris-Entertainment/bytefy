@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Current url as QR code</title>
+  <script src="../libraries/qrcode.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 10px;
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+    img {
+      margin-top: 10px;
+    }
+    a {
+      color: #f0f0f0;
+      text-decoration: none;
+    }
+    .logotype{
+      width: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <img class="logotype" src="https://bytefy.net/assets/logo-full-orange-beta-vectorized.svg" alt="QR Code">
+  <p>More online tools at: <a href="https://bytefy.net" target="_blank">bytefy.net</a></p>
+  <h3>Current url as QR code</h3>
+  <div id="qrcode"></div>
+  <script src="popup.js"></script>
+</body>
+
+</html>
