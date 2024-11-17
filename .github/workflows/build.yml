@@ -41,12 +41,12 @@ jobs:
 
     - name: Install Angular Dependencies
       run: |
-        cd ./tools
+        cd ./bytefy.webapp
         npm install --force
 
     - name: Build Angular App
       run: |
-        cd ./tools
+        cd ./bytefy.webapp
         ng build --configuration production --output-path=dist
 
     - name: Upload Artifacts
@@ -59,7 +59,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: angular-artifacts
-        path: ./tools/dist
+        path: ./bytefy.webapp/dist
 
   deploy:
     runs-on: self-hosted  # Ensure your self-hosted runner is configured
@@ -76,15 +76,15 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: angular-artifacts
-        path: ./tools/dist
+        path: ./bytefy.webapp/dist
 
     - name: Check Output Files
       run: |
         dir ./output/dotnet
-        dir ./tools/dist
+        dir ./bytefy.webapp/dist
     
     - name: Copy .NET Publish Files to IIS Server
       run: |
         xcopy ".\output\dotnet\*" "C:\inetpub\applications\bytefy.image" /s /i /y
-        xcopy ".\tools\dist\browser\*" "C:\inetpub\wwwroot\bytefy" /s /i /y
+        xcopy ".\bytefy.webapp\dist\browser\*" "C:\inetpub\wwwroot\bytefy" /s /i /y
 
