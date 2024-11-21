@@ -90,6 +90,11 @@ export class HeaderComponent implements OnInit {
 											label: 'Ascii to text',
 											routerLink: 'ascii-to-text',
 											routerLinkActiveOptions: { exact: true }
+										},
+										{
+											label: 'Oracle GUID Converter',
+											routerLink: 'oracle-guid-converter',
+											routerLinkActiveOptions: { exact: true }
 										}
 									]
 								}

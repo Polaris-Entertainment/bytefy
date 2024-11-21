@@ -1,0 +1,27 @@
+<div class="container">
+    <h2>GUID to Oracle RAW(16) Converter</h2>
+  
+    <div class="conversion-section">
+      <h3>Convert GUID to RAW(16)</h3>
+      <label for="guidInput">Enter GUID:</label>
+      <input id="guidInput" [(ngModel)]="guidInput" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" />
+      <button (click)="onConvertToRaw()">Convert to RAW(16)</button>
+  
+      <ng-container *ngIf="rawOutput as output">
+        <p><strong>RAW(16) Output:</strong></p>
+        <p>{{ output }}</p>
+      </ng-container>
+    </div>
+  
+    <div class="conversion-section">
+      <h3>Convert RAW(16) to GUID</h3>
+      <label for="rawOutput">Enter RAW(16):</label>
+      <input id="rawOutput" [(ngModel)]="rawOutput" placeholder="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" />
+      <button (click)="onConvertToGuid()">Convert to GUID</button>
+  
+      <ng-container *ngIf="convertedGuid as converted">
+        <p><strong>GUID Output:</strong></p>
+        <p>{{ converted }}</p>
+      </ng-container>
+    </div>
+</div>
