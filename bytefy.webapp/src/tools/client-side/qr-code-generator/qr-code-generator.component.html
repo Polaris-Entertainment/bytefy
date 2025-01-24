@@ -48,12 +48,12 @@
       </p-toolbar>
     </div>
     <textarea
+      pInputTextarea
       *ngIf="extendedInput"
       (keyup)="onDataTextInputChanged($event)"
       [value]="qrCodeData"
-      pInputTextarea 
-      [autoResize]="true" 
-      [fluid]="true" 
+      autoResize
+      fluid
       rows="5" 
       cols="30" 
       placeholder="Contents of QR Code"
