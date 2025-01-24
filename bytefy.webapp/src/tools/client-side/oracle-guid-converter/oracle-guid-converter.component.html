@@ -1,0 +1,9 @@
+<app-dual-textarea 
+  title="GUID to Oracle RAW(16) Converter"
+  topPlaceholder="Enter GUID here..."
+  bottomPlaceholder="Enter RAW(16) will appear here..."
+  [topValue]="convertedGuid" 
+  [bottomValue]="rawOutput" 
+  (topChange)="onConvertToRaw($event)" 
+  (bottomChange)="onConvertToGuid($event)">
+</app-dual-textarea>

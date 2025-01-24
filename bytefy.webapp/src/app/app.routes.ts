@@ -9,6 +9,7 @@ import { ImageConverterComponent } from '../tools/server-side/image-converter/im
 import { WordCounterComponent } from '../tools/client-side/word-counter/word-counter.component';
 import { ColorPickerComponent } from '../tools/client-side/color-picker/color-picker.component';
 import { QrCodeGeneratorComponent } from '../tools/client-side/qr-code-generator/qr-code-generator.component';
+import { OracleGuidConverterComponent } from '../tools/client-side/oracle-guid-converter/oracle-guid-converter.component';
 
 export const routes: Routes = [
   {
@@ -60,6 +61,11 @@ export const routes: Routes = [
     path: 'color-picker',
     pathMatch: 'full',
     component: ColorPickerComponent
+  },
+  {
+    path: 'oracle-guid-converter',
+    pathMatch: 'full',
+    component: OracleGuidConverterComponent
   }
 ];
 
