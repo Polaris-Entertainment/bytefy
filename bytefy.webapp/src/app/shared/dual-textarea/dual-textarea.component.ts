@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FloatLabelModule } from 'primeng/floatlabel';
-import { InputTextareaModule } from 'primeng/inputtextarea';
+import { TextareaModule } from 'primeng/textarea';
 import { PanelModule } from 'primeng/panel';
 import { TagModule } from 'primeng/tag';
 import { PageComponent } from '../page/page.component';
@@ -14,7 +14,7 @@ import { PageComponent } from '../page/page.component';
   standalone: true,
   imports: [
     FloatLabelModule, 
-    InputTextareaModule, 
+    TextareaModule, 
     FormsModule, 
     PanelModule, 
     CommonModule,

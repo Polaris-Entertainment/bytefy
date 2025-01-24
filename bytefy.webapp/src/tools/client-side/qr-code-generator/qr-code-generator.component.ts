@@ -7,7 +7,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { ToolbarModule } from 'primeng/toolbar';
 import { CommonModule } from '@angular/common';
-import { InputTextareaModule } from 'primeng/inputtextarea';
+import { TextareaModule } from 'primeng/textarea';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { FileUploadModule } from 'primeng/fileupload';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
@@ -35,7 +35,7 @@ export interface QrCodeError {
     ToolbarModule, 
     CommonModule, 
     FloatLabelModule, 
-    InputTextareaModule,
+    TextareaModule,
     FileUploadModule,
     MessageModule,
     SelectButtonModule,

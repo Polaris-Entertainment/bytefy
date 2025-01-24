@@ -17,8 +17,6 @@ export class HeaderComponent implements OnInit {
 	isDarkMode: boolean = true;
 
   ngOnInit() {
-    this.isDarkMode = window?.matchMedia?.('(prefers-color-scheme:dark)')?.matches;
-
       this.items = [
           {
 						label: 'Tools',

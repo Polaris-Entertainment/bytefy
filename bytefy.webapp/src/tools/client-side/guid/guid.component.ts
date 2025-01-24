@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InputTextareaModule } from 'primeng/inputtextarea';
+import { TextareaModule } from 'primeng/textarea';
 import { FormsModule } from '@angular/forms';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { RadioButtonModule,  } from 'primeng/radiobutton';
@@ -29,7 +29,7 @@ interface setting {
     PanelModule,
     DividerModule,
     FloatLabelModule, 
-    InputTextareaModule, 
+    TextareaModule, 
     FormsModule, 
     RadioButtonModule, 
     CommonModule, 
