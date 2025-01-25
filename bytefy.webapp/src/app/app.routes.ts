@@ -10,8 +10,14 @@ import { WordCounterComponent } from '../tools/client-side/word-counter/word-cou
 import { ColorPickerComponent } from '../tools/client-side/color-picker/color-picker.component';
 import { QrCodeGeneratorComponent } from '../tools/client-side/qr-code-generator/qr-code-generator.component';
 import { OracleGuidConverterComponent } from '../tools/client-side/oracle-guid-converter/oracle-guid-converter.component';
+import { FrontPageComponent } from './front-page/front-page.component';
 
 export const routes: Routes = [
+  {
+    path: '',
+    pathMatch: 'full',
+    component: FrontPageComponent
+  },
   {
     path: 'ascii-to-text',
     pathMatch: 'full',
@@ -66,6 +72,9 @@ export const routes: Routes = [
     path: 'oracle-guid-converter',
     pathMatch: 'full',
     component: OracleGuidConverterComponent
+  }, {
+    path: '**',
+    redirectTo: ''
   }
 ];
 

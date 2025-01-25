@@ -6,6 +6,7 @@ import { TextareaModule } from 'primeng/textarea';
 import { PanelModule } from 'primeng/panel';
 import { TagModule } from 'primeng/tag';
 import { PageComponent } from '../page/page.component';
+import { CardModule } from 'primeng/card';
 
 @Component({
     selector: 'app-dual-textarea',
@@ -18,7 +19,8 @@ import { PageComponent } from '../page/page.component';
         PanelModule,
         CommonModule,
         TagModule,
-        PageComponent
+        PageComponent,
+        CardModule
     ]
 })
 export class DualTextareaComponent {
@@ -30,6 +32,8 @@ export class DualTextareaComponent {
   @Input() topValue: string = '';
   @Input() bottomValue: string = '';
   @Input() isBeta: boolean = false;
+  @Input() privacyText: string = '';
+
   @Output() topChange = new EventEmitter<string>();
   @Output() bottomChange = new EventEmitter<string>();
 

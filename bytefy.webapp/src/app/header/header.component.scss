@@ -1,6 +1,9 @@
 .logotype {
     width: 140px;
 }
+img {
+  cursor: pointer;
+}
 
 ::ng-deep .p-megamenu-col-12 {
     flex-direction: row !important;

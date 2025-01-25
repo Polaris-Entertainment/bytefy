@@ -22,6 +22,7 @@
     "@ng-icons/core": "^29.5.1",
     "@ng-icons/css.gg": "^29.5.1",
     "@ng-icons/heroicons": "^29.5.1",
+    "@ng-icons/material-icons": "^30.2.0",
     "@primeng/themes": "^19.0.5",
     "angularx-qrcode": "^18.0.2",
     "primeicons": "^7.0.0",

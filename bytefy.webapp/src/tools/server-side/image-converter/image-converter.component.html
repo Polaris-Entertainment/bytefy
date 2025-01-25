@@ -1,6 +1,7 @@
 <app-file-converter 
   title="Image converter"
   method="post"
+  privacyText="This tool requires internet access to convert images. The images are processed on the servers and are not stored on any disk."
   [isPreview]="false"
   [fileTypeSelector]="true"
   [processedFiles]="processedFiles" 
@@ -13,5 +14,5 @@
   (fileSelected)="onFileSelected($event)"
   (selectedFormat)="onFormatSelected($event)"
   (upload)="onUploadClicked()"
-  >
+>
 </app-file-converter>

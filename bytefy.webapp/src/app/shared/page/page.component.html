@@ -1,5 +1,13 @@
 <div class="card">
-  <p-panel [header]="header">
+  <p-panel>
+    <ng-template pTemplate="header">
+        <span class="p-panel-title">{{header}}</span>
+    </ng-template>
+    <ng-template #icons *ngIf="!isRoot">
+      <p-button class="pinButton" severity="secondary" [pTooltip]="isPinned ? 'Unpin from start page.' : 'Pin to start page.'" rounded text (click)="togglePin()">
+          <ng-icon [name]="displayIcon"></ng-icon>
+      </p-button>
+    </ng-template>
     <ng-content></ng-content>
   </p-panel>
 </div>

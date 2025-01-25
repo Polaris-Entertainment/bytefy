@@ -10,11 +10,15 @@
         width: 1140px;
     }
 
-    ::ng-deep .p-panel-header {
-        justify-content: unset !important;
-
-        * {
-            margin-right: 5px;
-        }
+    .pinButton {
+      margin-right: unset !important;
     }
+
+    ::ng-deep .p-panel-header {
+        justify-content: space-between !important;
+    }
+}
+
+:host(.root-path) {
+  width: unset;
 }

@@ -10,6 +10,8 @@ import { BadgeModule } from 'primeng/badge';
 import { HttpHeaders } from '@angular/common/http';
 import { TagModule } from 'primeng/tag';
 import { PageComponent } from '../page/page.component';
+import { Divider } from 'primeng/divider';
+import { CardModule } from 'primeng/card';
 
 interface ProcessedFile {
   name: string;
@@ -31,7 +33,8 @@ interface ProcessedFile {
         AutoCompleteModule,
         BadgeModule,
         TagModule,
-        PageComponent
+        PageComponent,
+        CardModule
     ]
 })
 export class FileConverterComponent implements OnInit {
@@ -44,6 +47,7 @@ export class FileConverterComponent implements OnInit {
   selectedFile: File[] | null = null;
 
   @Output() fileSelected = new EventEmitter<File[]>();
+  @Input() privacyText: string = '';
   @Input() isBeta: boolean = false;
   @Input() filteredFiles: string[] = [];
   @Input() isPreview: boolean = true;

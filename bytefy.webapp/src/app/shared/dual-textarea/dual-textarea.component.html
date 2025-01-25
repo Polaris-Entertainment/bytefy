@@ -20,4 +20,10 @@
     [value]="bottomValue"
     [placeholder]="bottomPlaceholder">
   </textarea>
+  <div class="space" *ngIf="privacyText !== ''">
+    <h3>Privacy information</h3>
+    <p>
+      {{ privacyText }}
+    </p>
+  </div>
 </page>
