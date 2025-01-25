@@ -18,22 +18,21 @@ interface ProcessedFile {
 }
 
 @Component({
-  selector: 'app-file-converter',
-  templateUrl: 'file-converter.component.html',
-  styleUrls: ['file-converter.component.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    FileUploadModule,
-    ButtonModule,
-    PanelModule,
-    TableModule,
-    AutoCompleteModule,
-    BadgeModule,
-    TagModule,
-    PageComponent
-  ]
+    selector: 'app-file-converter',
+    templateUrl: 'file-converter.component.html',
+    styleUrls: ['file-converter.component.scss'],
+    imports: [
+        CommonModule,
+        FormsModule,
+        FileUploadModule,
+        ButtonModule,
+        PanelModule,
+        TableModule,
+        AutoCompleteModule,
+        BadgeModule,
+        TagModule,
+        PageComponent
+    ]
 })
 export class FileConverterComponent implements OnInit {
   _fileFormats: string[] = [];

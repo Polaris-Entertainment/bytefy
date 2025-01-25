@@ -21,26 +21,25 @@ export interface QrCodeError {
 }
 
 @Component({
-  selector: 'app-qr-code-generator',
-  templateUrl: './qr-code-generator.component.html',
-  styleUrls: ['./qr-code-generator.component.scss'],
-  standalone: true,
-  imports: [
-    QRCodeModule, 
-    AccordionModule, 
-    PanelModule, 
-    TagModule, 
-    InputTextModule, 
-    ButtonModule, 
-    ToolbarModule, 
-    CommonModule, 
-    FloatLabelModule, 
-    TextareaModule,
-    FileUploadModule,
-    MessageModule,
-    SelectButtonModule,
-    ColorPickerModule
-  ]
+    selector: 'app-qr-code-generator',
+    templateUrl: './qr-code-generator.component.html',
+    styleUrls: ['./qr-code-generator.component.scss'],
+    imports: [
+        QRCodeModule,
+        AccordionModule,
+        PanelModule,
+        TagModule,
+        InputTextModule,
+        ButtonModule,
+        ToolbarModule,
+        CommonModule,
+        FloatLabelModule,
+        TextareaModule,
+        FileUploadModule,
+        MessageModule,
+        SelectButtonModule,
+        ColorPickerModule
+    ]
 })
 export class QrCodeGeneratorComponent implements OnInit {
   qrCodeData: string = 'bytefy.net';

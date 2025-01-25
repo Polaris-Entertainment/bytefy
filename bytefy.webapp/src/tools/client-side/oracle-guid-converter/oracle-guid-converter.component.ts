@@ -4,15 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { DualTextareaComponent } from '../../../app/shared/dual-textarea/dual-textarea.component';
 
 @Component({
-  selector: 'app-oracle-guid-converter',
-  standalone: true,
-  imports: [
-    FormsModule,
-    CommonModule,
-    DualTextareaComponent
-  ],
-  templateUrl: './oracle-guid-converter.component.html',
-  styleUrl: './oracle-guid-converter.component.scss'
+    selector: 'app-oracle-guid-converter',
+    imports: [
+        FormsModule,
+        CommonModule,
+        DualTextareaComponent
+    ],
+    templateUrl: './oracle-guid-converter.component.html',
+    styleUrl: './oracle-guid-converter.component.scss'
 })
 export class OracleGuidConverterComponent {
   guidInput: string = '';

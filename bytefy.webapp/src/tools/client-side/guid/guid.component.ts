@@ -19,24 +19,23 @@ interface setting {
 }
 
 @Component({
-  selector: 'app-guid',
-  templateUrl: './guid.component.html',
-  styleUrls: ['./guid.component.scss'],
-  standalone: true,
-  viewProviders: [provideIcons({cssFormatUppercase})],
-  imports: [
-    NgIconComponent,
-    PanelModule,
-    DividerModule,
-    FloatLabelModule, 
-    TextareaModule, 
-    FormsModule, 
-    RadioButtonModule, 
-    CommonModule, 
-    ToggleButtonModule, 
-    ButtonModule,
-    TooltipModule
-  ]
+    selector: 'app-guid',
+    templateUrl: './guid.component.html',
+    styleUrls: ['./guid.component.scss'],
+    viewProviders: [provideIcons({ cssFormatUppercase })],
+    imports: [
+        NgIconComponent,
+        PanelModule,
+        DividerModule,
+        FloatLabelModule,
+        TextareaModule,
+        FormsModule,
+        RadioButtonModule,
+        CommonModule,
+        ToggleButtonModule,
+        ButtonModule,
+        TooltipModule
+    ]
 })
 export class GuidComponent implements OnInit {
   settings: setting[] | undefined;

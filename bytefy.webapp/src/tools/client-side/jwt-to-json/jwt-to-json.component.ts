@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { DualTextareaComponent } from '../../../app/shared/dual-textarea/dual-textarea.component';
 
 @Component({
-  selector: 'app-jwt-to-json',
-  templateUrl: './jwt-to-json.component.html',
-  styleUrls: ['./jwt-to-json.component.scss'],
-  standalone: true,
-  imports: [DualTextareaComponent]
+    selector: 'app-jwt-to-json',
+    templateUrl: './jwt-to-json.component.html',
+    styleUrls: ['./jwt-to-json.component.scss'],
+    imports: [DualTextareaComponent]
 })
 export class JwtToJsonComponent {
   readableToken: string = '';

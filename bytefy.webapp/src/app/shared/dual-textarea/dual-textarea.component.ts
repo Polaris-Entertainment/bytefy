@@ -8,20 +8,18 @@ import { TagModule } from 'primeng/tag';
 import { PageComponent } from '../page/page.component';
 
 @Component({
-  selector: 'app-dual-textarea',
-  templateUrl: 'dual-textarea.component.html',
-  styleUrls: ['dual-textarea.component.scss'],
-  standalone: true,
-  imports: [
-    FloatLabelModule, 
-    TextareaModule, 
-    FormsModule, 
-    PanelModule, 
-    CommonModule,
-    TagModule,
-    PageComponent
-  ]
-
+    selector: 'app-dual-textarea',
+    templateUrl: 'dual-textarea.component.html',
+    styleUrls: ['dual-textarea.component.scss'],
+    imports: [
+        FloatLabelModule,
+        TextareaModule,
+        FormsModule,
+        PanelModule,
+        CommonModule,
+        TagModule,
+        PageComponent
+    ]
 })
 export class DualTextareaComponent {
   @Input() topDisabled: boolean = false;

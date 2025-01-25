@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { DualTextareaComponent } from '../../../app/shared/dual-textarea/dual-textarea.component';
 
 @Component({
-  selector: 'app-ascii-to-text',
-  templateUrl: './ascii-to-text.component.html',
-  styleUrls: ['./ascii-to-text.component.scss'],
-  standalone: true,
-  imports: [DualTextareaComponent]
+    selector: 'app-ascii-to-text',
+    templateUrl: './ascii-to-text.component.html',
+    styleUrls: ['./ascii-to-text.component.scss'],
+    imports: [DualTextareaComponent]
 })
 export class AsciiToTextComponent {
   convertedText: string = '';
