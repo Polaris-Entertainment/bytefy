@@ -6,18 +6,17 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PageComponent } from '../../../app/shared/page/page.component';
 
 @Component({
-  selector: 'app-color-picker',
-  standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    InputTextModule,
-    ButtonModule,
-    ReactiveFormsModule,
-    PageComponent
-  ],
-  templateUrl: './color-picker.component.html',
-  styleUrl: './color-picker.component.scss'
+    selector: 'app-color-picker',
+    imports: [
+        CommonModule,
+        FormsModule,
+        InputTextModule,
+        ButtonModule,
+        ReactiveFormsModule,
+        PageComponent
+    ],
+    templateUrl: './color-picker.component.html',
+    styleUrl: './color-picker.component.scss'
 })
 export class ColorPickerComponent {
   colorControl = new FormControl('#ff0000');

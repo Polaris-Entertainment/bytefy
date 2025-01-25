@@ -4,11 +4,10 @@ import { DdsToPngService } from './dds-to-png.service';
 import { ProcessedFile } from '../../../app/models/conversion.model';
 
 @Component({
-  selector: 'app-dds-to-png',
-  templateUrl: './dds-to-png.component.html',
-  styleUrls: ['./dds-to-png.component.scss'],
-  standalone: true,
-  imports: [FileConverterComponent]
+    selector: 'app-dds-to-png',
+    templateUrl: './dds-to-png.component.html',
+    styleUrls: ['./dds-to-png.component.scss'],
+    imports: [FileConverterComponent]
 })
 export class DdsToPngComponent {
 

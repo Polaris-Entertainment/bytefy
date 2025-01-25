@@ -10,11 +10,10 @@ import { Format, ProcessedFile } from '../../../app/models/conversion.model';
 import { HttpHeaders } from '@angular/common/http';
 
 @Component({
-  selector: 'app-image-converter',
-  templateUrl: 'image-converter.component.html',
-  styleUrls: ['image-converter.component.scss'],
-  standalone: true,
-  imports: [DropdownModule, AutoCompleteModule, FormsModule, CommonModule, FileConverterComponent]
+    selector: 'app-image-converter',
+    templateUrl: 'image-converter.component.html',
+    styleUrls: ['image-converter.component.scss'],
+    imports: [DropdownModule, AutoCompleteModule, FormsModule, CommonModule, FileConverterComponent]
 })
 export class ImageConverterComponent implements OnInit, OnDestroy {
   constructor(private ImageService: ImageService) { }

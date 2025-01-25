@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { DualTextareaComponent } from '../../../app/shared/dual-textarea/dual-textarea.component';
 
 @Component({
-  selector: 'app-word-counter',
-  templateUrl: './word-counter.component.html',
-  styleUrls: ['./word-counter.component.scss'],
-  standalone: true,
-  imports: [DualTextareaComponent]
+    selector: 'app-word-counter',
+    templateUrl: './word-counter.component.html',
+    styleUrls: ['./word-counter.component.scss'],
+    imports: [DualTextareaComponent]
 })
 export class WordCounterComponent {
   words: number = 0;

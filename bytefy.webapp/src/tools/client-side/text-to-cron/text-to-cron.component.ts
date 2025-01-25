@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { DualTextareaComponent } from '../../../app/shared/dual-textarea/dual-textarea.component';
 
 @Component({
-  selector: 'app-text-to-cron',
-  templateUrl: './text-to-cron.component.html',
-  styleUrls: ['./text-to-cron.component.scss'],
-  standalone: true,
-  imports: [DualTextareaComponent]
+    selector: 'app-text-to-cron',
+    templateUrl: './text-to-cron.component.html',
+    styleUrls: ['./text-to-cron.component.scss'],
+    imports: [DualTextareaComponent]
 })
 export class TextToCronComponent {
   cronExpression: string = '';

@@ -8,8 +8,7 @@ import { AvatarModule } from 'primeng/avatar';
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
-		styleUrls: ['./header.component.scss'],
-    standalone: true,
+    styleUrls: ['./header.component.scss'],
     imports: [MegaMenuModule, ButtonModule, CommonModule, AvatarModule]
 })
 export class HeaderComponent implements OnInit {
