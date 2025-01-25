@@ -6,7 +6,6 @@
   flex-direction: row;
   justify-content: center;
   padding: 5px;
-  // background-color: var(--primary-contrast);
 
   i {
     transform: rotate(90deg);
@@ -38,13 +37,4 @@ textarea {
     font-size: 16px;
     resize: none;
     background-color: var(--primary-contrast);
-}
-
-
-::ng-deep .p-panel-header {
-  justify-content: unset !important;
-
-  * {
-    margin-right: 5px;
-  }
 }

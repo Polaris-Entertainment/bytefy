@@ -8,12 +8,20 @@ import { CommonModule } from '@angular/common';
 import { FileConverterComponent } from "../../../app/shared/upload/file-converter.component";
 import { Format, ProcessedFile } from '../../../app/models/conversion.model';
 import { HttpHeaders } from '@angular/common/http';
+import { CardModule } from 'primeng/card';
 
 @Component({
     selector: 'app-image-converter',
     templateUrl: 'image-converter.component.html',
     styleUrls: ['image-converter.component.scss'],
-    imports: [DropdownModule, AutoCompleteModule, FormsModule, CommonModule, FileConverterComponent]
+    imports: [
+      DropdownModule, 
+      AutoCompleteModule, 
+      FormsModule, 
+      CommonModule, 
+      FileConverterComponent, 
+      CardModule
+    ]
 })
 export class ImageConverterComponent implements OnInit, OnDestroy {
   constructor(private ImageService: ImageService) { }
@@ -65,7 +73,6 @@ export class ImageConverterComponent implements OnInit, OnDestroy {
       );
     }
   }
-  
 
   onFormatSelected(format: string) {
     this.selectedFormat = format;

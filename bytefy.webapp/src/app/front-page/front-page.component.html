@@ -1,0 +1,6 @@
+@if(hasPins) {
+  <app-dynamic-loader [paths]="pinnedPaths"></app-dynamic-loader>
+} 
+@else {
+  <app-default></app-default>
+}

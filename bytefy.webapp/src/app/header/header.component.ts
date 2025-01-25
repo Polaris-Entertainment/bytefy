@@ -4,12 +4,13 @@ import { MegaMenuModule } from 'primeng/megamenu';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
 import { AvatarModule } from 'primeng/avatar';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss'],
-    imports: [MegaMenuModule, ButtonModule, CommonModule, AvatarModule]
+    imports: [MegaMenuModule, ButtonModule, CommonModule, AvatarModule, RouterLink]
 })
 export class HeaderComponent implements OnInit {
   items: MegaMenuItem[] | undefined;

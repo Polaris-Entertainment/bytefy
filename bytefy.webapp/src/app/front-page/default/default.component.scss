@@ -1,0 +1,54 @@
+.landing-page-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.tool-item {
+  margin: 1.5rem 0;
+  width: 31%;
+}
+
+@media only screen and (min-device-width: 480px) {
+  .tool-item {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width:768px)  { 
+  .tool-item {
+    width: 47%;
+  }
+}
+
+.tool-item h4 {
+  color: var(--p-button-primary-border-color);
+}
+
+p-card {
+  max-width: 1140px;
+
+  .p-card {
+    background: none !important;
+    background-color: none !important;
+  }
+}
+
+::ng-deep .p-card {
+  background: none !important;
+  background-color: none !important;
+}
+
+p-divider {
+  margin: 1.5rem 0;
+}
+
+p-button {
+  margin-top: 1rem;
+}
+
+.matrix-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}

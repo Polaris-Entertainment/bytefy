@@ -1,0 +1,27 @@
+<div class="landing-page-container">
+  <p-card header="Welcome to Bytefy DevTools Hub">
+    <p>
+      <strong>Bytefy DevTools Hub</strong> is a website designed to help developers and media creators
+      with a variety of useful tools. Whether you're working on web development, media editing, or managing your
+      projects, we have you covered.
+    </p>
+    <p>
+      Our tools include:
+    </p>
+    <p-divider></p-divider>
+    <div class="matrix-wrapper">
+      <div *ngFor="let tool of tools" class="tool-item">
+        <h4>{{ tool.name }}</h4>
+        <p>{{ tool.description }}</p>
+        <p-button label="Learn More" icon="pi pi-arrow-right" class="p-button-outlined" [routerLink]="tool.link"></p-button>
+      </div>
+    </div>
+    <p-divider></p-divider>
+    <div>
+      <h3>Privacy Information</h3>
+      <p>
+        All of our tools operate offline and do not store any data, unless explicitly stated on the tool's page. We are committed to respecting your privacy and ensuring the security of your information.
+      </p>
+    </div>
+  </p-card>
+</div>
