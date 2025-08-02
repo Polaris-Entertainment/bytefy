@@ -34,7 +34,7 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '22.1.0'  # Change to your required Node.js version
+        node-version: '22.12'  # Change to your required Node.js version
 
     - name: Install Angular CLI
       run: npm install -g @angular/cli
