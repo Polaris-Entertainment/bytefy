@@ -67,8 +67,8 @@ jobs:
               )
               }
               Seq = @{
-              ServerUrl = ${{ vars.SEQ_URL }}
-              ApiKey = ${{ secrets.seq_api_key }}
+              ServerUrl = "{{ vars.SEQ_URL }}"
+              ApiKey = "${{ secrets.seq_api_key }}"
               MinimumLevel = "Trace"
                 LevelOverride = @{
                     Microsoft = "Warning"
