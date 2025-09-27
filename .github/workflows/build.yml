@@ -145,7 +145,7 @@ jobs:
         Import-Module WebAdministration
         $appPoolName = "${{ vars.IIS_APP_POOL_NAME }}"
         if ([string]::IsNullOrEmpty($appPoolName)) {
-            $appPoolName = "HomeApi"
+            $appPoolName = "Bytefy.image"
         }
 
         Write-Host "Starting application pool: $appPoolName"
