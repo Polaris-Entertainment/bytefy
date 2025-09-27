@@ -4,7 +4,24 @@ on:
   push:
     branches:
       - master  # Change to your default branch if different
-
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'prod'
+        type: choice
+        options:
+        - prod
+      restart_iis:
+        description: 'Restart IIS after deployment'
+        required: true
+        default: true
+        type: boolean
+      create_release:
+        description: 'Create release'
+        required: true
+        default: true
 jobs:
   build:
     runs-on: self-hosted  # Ensure your self-hosted runner is configured
@@ -30,6 +47,39 @@ jobs:
 
     - name: Publish .NET Project
       run: dotnet publish ./services/bytefy.image/bytefy.image/bytefy.image.csproj --configuration Release --output ./output/dotnet
+
+
+    - name: Create placeholder appsettings for release
+      if: ${{ github.event.inputs.create_release != 'false' }}
+      run: |
+          $appSettings = @{
+              Logging = @{
+              LogLevel = @{
+                  Default = "Information"
+                  "Microsoft.AspNetCore" = "Warning"
+              }
+              }
+              AllowedHosts = "*"
+              Cors = @{
+              AllowedOrigins = @(
+                  "http://localhost:4200"
+                  "https://localhost:4200"
+              )
+              }
+              Seq = @{
+              ServerUrl = ${{ vars.SEQ_URL }}
+              ApiKey = ${{ secrets.seq_api_key }}
+              MinimumLevel = "Trace"
+                LevelOverride = @{
+                    Microsoft = "Warning"
+                }
+              }
+          }
+
+          $appSettings | ConvertTo-Json -Depth 10 | Set-Content -Path "./output/dotnet/appsettings.json"
+          Write-Host "Created placeholder appsettings.json successfully"
+
+
 
     - name: Install Node.js
       uses: actions/setup-node@v3
@@ -63,6 +113,7 @@ jobs:
 
   deploy:
     runs-on: self-hosted  # Ensure your self-hosted runner is configured
+    if: ${{ github.event.inputs.create_release != 'false' }}
     needs: build
 
     steps:
@@ -87,4 +138,26 @@ jobs:
       run: |
         xcopy ".\output\dotnet\*" "C:\inetpub\applications\bytefy.image" /s /i /y
         xcopy ".\bytefy.webapp\dist\browser\*" "C:\inetpub\wwwroot\bytefy" /s /i /y
+
+    - name: Restart IIS Application Pool
+      if: ${{ github.event.inputs.restart_iis != 'false' }}
+      run: |
+        Import-Module WebAdministration
+        $appPoolName = "${{ vars.IIS_APP_POOL_NAME }}"
+        if ([string]::IsNullOrEmpty($appPoolName)) {
+            $appPoolName = "HomeApi"
+        }
+
+        Write-Host "Starting application pool: $appPoolName"
+
+        # Check if app pool exists
+        if (Test-Path "IIS:\AppPools\$appPoolName") {
+          # Start app pool
+          Start-WebAppPool -Name $appPoolName
+          Write-Host "Application pool started successfully"
+        } else {
+          Write-Host "Warning: Application pool '$appPoolName' not found. Using IISReset instead."
+          iisreset /restart
+          Write-Host "IIS restarted successfully"
+        }
 
