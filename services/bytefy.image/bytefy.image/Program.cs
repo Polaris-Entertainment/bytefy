@@ -7,6 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAntiforgery(options => options.HeaderName = "2311d8d8-607d-4747-8939-1bde65643254");
 builder.Services.AddSingleton<ConversionQueueService>();
 builder.Services.AddHostedService(provider => provider.GetRequiredService<ConversionQueueService>());
+builder.Services.AddLogging(loggingBuilder =>
+{
+    loggingBuilder.AddSeq(builder.Configuration.GetSection("Seq"));
+});
 
 var corsSettings = builder.Configuration.GetSection("Cors").Get<CorsSettings>();
 
